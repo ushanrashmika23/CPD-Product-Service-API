@@ -66,12 +66,11 @@ const updateCategory= async (request,response)=>{
 
 
 const deleteCategory= async (request,response)=>{
-    let _id;
     try {
         if (!request.params.id) {
             return response.status(400).json({code: 400, message: 'some fields are missing!..', data: null});
         }
-        const deleteData = await CategorySchema.findOneAndDelete(_id = request.params.id);
+        const deleteData = await CategorySchema.findOneAndDelete({_id : request.params.id});
         return response.status(200).json({code: 204, message: 'customer has been deleted...', data: null});
     } catch (e) {
         response.status(500).json({code: 500, message: 'something went wrong...', error: e});

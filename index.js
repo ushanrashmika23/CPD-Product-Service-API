@@ -13,6 +13,8 @@ const serverPort=process.env.SERVER_PORT || 3000;
 //========================================================================
 const CategoryRoute=require('./routes/CategoryRoute')
 const CountryRoute=require('./routes/CountryRoute')
+const DiscountRoute=require('./routes/DiscountRoute')
+const CartRoute=require('./routes/CartRout')
 //========================================================================
 try{
     mongoose.connect(`${process.env.DATABASE_URL}:${process.env.DB_PORT}/${process.env.DB_NAME}`);
@@ -34,3 +36,5 @@ app.get('/test-api',(request,response)=>{
 
 app.use('/api/v1/categories',CategoryRoute);
 app.use('/api/v1/countries',CountryRoute);
+app.use('/api/v1/discounts',DiscountRoute);
+app.use('/api/v1/carts',CartRoute);
