@@ -16,6 +16,8 @@ const CountryRoute=require('./routes/CountryRoute')
 const DiscountRoute=require('./routes/DiscountRoute')
 const CartRoute=require('./routes/CartRout')
 const BookmarkRoute=require('./routes/BookmarkRoute')
+const ReviewRoute=require('./routes/ReviewRoute')
+const ProductRoute=require('./routes/ProductRoute')
 //========================================================================
 try{
     mongoose.connect(`${process.env.DATABASE_URL}:${process.env.DB_PORT}/${process.env.DB_NAME}`);
@@ -40,3 +42,5 @@ app.use('/api/v1/countries',CountryRoute);
 app.use('/api/v1/discounts',DiscountRoute);
 app.use('/api/v1/carts',CartRoute);
 app.use('/api/v1/bookmarks',BookmarkRoute);
+app.use('/api/v1/reviews',ReviewRoute);
+app.use('/api/v1/products',ProductRoute);
